@@ -5,7 +5,7 @@ terraform {
 
 #Configure the Azure provider
 provider "azurerm" {
-  version = "=1.44.0"
+  version = "1.44.0"
   subscription_id = "a0cad32f-8c4b-4749-8776-b207a38b8509"
 }
 

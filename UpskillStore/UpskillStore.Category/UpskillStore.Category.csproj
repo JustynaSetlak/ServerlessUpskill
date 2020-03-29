@@ -9,7 +9,6 @@
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.31" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UpskillStore.Data\UpskillStore.Data.csproj" />
     <ProjectReference Include="..\UpskillStore.TableStorage\UpskillStore.TableStorage.csproj" />
     <ProjectReference Include="..\UpskillStore.Utils\UpskillStore.Utils.csproj" />
   </ItemGroup>
@@ -22,9 +21,7 @@
     </None>
     <None Update="local.settings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Handlers\" />
   </ItemGroup>
 </Project>
