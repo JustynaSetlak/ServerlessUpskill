@@ -6,6 +6,8 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using UpskillStore.Common.Constants;
 using UpskillStore.Data.Dtos;
 using UpskillStore.Data.Repositories;
+using UpskillStore.EventPublisher.EventHandlers;
+using UpskillStore.EventPublisher.Events;
 using UpskillStore.Product.HttpRequests;
 
 namespace UpskillStore.Product.Functions.Http
@@ -14,11 +16,16 @@ namespace UpskillStore.Product.Functions.Http
     {
         private readonly IProductRepository _productRepository;
         private readonly IValidator<CreateProductHttpRequest> _validator;
+        private readonly IEventPublisher _eventPublisher;
 
-        public CreateProduct(IProductRepository productRepository, IValidator<CreateProductHttpRequest> validator)
+        public CreateProduct(
+            IProductRepository productRepository, 
+            IValidator<CreateProductHttpRequest> validator,
+            IEventPublisher eventPublisher)
         {
             _productRepository = productRepository;
             _validator = validator;
+            _eventPublisher = eventPublisher;
         }
 
         [FunctionName(nameof(CreateProduct))]
@@ -46,7 +53,7 @@ namespace UpskillStore.Product.Functions.Http
                 return new BadRequestResult();
             }
 
-            //publish event
+            await _eventPublisher.PublishEvent(new NewProductCreated(result.Value));
 
             return new OkObjectResult(result.Value);
         }

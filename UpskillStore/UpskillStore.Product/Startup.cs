@@ -16,6 +16,9 @@ namespace UpskillStore.Product
         {
             builder.AddAppSettingsToConfiguration();
 
+            builder.RegisterEventServices();
+            builder.AddEventOptions();
+
             builder.AddDataAccessOptions();
             builder.RegisterDataAccessServices();
 
