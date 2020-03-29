@@ -7,23 +7,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpskillStore.Product", "Ups
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{FDE4469F-0577-4CB7-87B4-F9F69F1386D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpskillStore.Storage", "UpskillStore.Storage\UpskillStore.Storage.csproj", "{F79B08E8-0EF3-4C27-8437-F36E1FCDFC8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpskillStore.Search", "UpskillStore.Search\UpskillStore.Search.csproj", "{9B503F82-13EA-429F-AFA3-26088ED58BAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpskillStore.Search", "UpskillStore.Search\UpskillStore.Search.csproj", "{9B503F82-13EA-429F-AFA3-26088ED58BAD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpskillStore.Data", "UpskillStore.Data\UpskillStore.Data.csproj", "{1F60AF79-F247-4DA3-9F5F-85E199F3E18E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpskillStore.Data", "UpskillStore.Data\UpskillStore.Data.csproj", "{1F60AF79-F247-4DA3-9F5F-85E199F3E18E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{27970825-DC59-49E3-AF6E-4606FCC3EF10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpskillStore.Utils", "UpskillStore.Utils\UpskillStore.Utils.csproj", "{A6C1D31B-E732-47E9-A43D-0285EE697BFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpskillStore.Utils", "UpskillStore.Utils\UpskillStore.Utils.csproj", "{A6C1D31B-E732-47E9-A43D-0285EE697BFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpskillStore.EmailSender", "UpskillStore.EmailSender\UpskillStore.EmailSender.csproj", "{E52327BF-5BFC-452A-AD26-A208FAD4ED84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpskillStore.Category", "UpskillStore.Category\UpskillStore.Category.csproj", "{46A56DF7-6505-41BC-9B93-4C27932EAC7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpskillStore.Category", "UpskillStore.Category\UpskillStore.Category.csproj", "{46A56DF7-6505-41BC-9B93-4C27932EAC7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpskillStore.TableStorage", "UpskillStore.TableStorage\UpskillStore.TableStorage.csproj", "{8C045658-9277-4C6E-B961-1FAF09F5A670}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpskillStore.TableStorage", "UpskillStore.TableStorage\UpskillStore.TableStorage.csproj", "{8C045658-9277-4C6E-B961-1FAF09F5A670}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpskillStore.EventPublisher", "UpskillStore.EventPublisher\UpskillStore.EventPublisher.csproj", "{E9347B43-4123-46D2-94A6-61E92BFB2995}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpskillStore.EventPublisher", "UpskillStore.EventPublisher\UpskillStore.EventPublisher.csproj", "{E9347B43-4123-46D2-94A6-61E92BFB2995}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +31,6 @@ Global
 		{E484127D-81F6-4107-94C7-233FB642A3CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E484127D-81F6-4107-94C7-233FB642A3CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E484127D-81F6-4107-94C7-233FB642A3CB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F79B08E8-0EF3-4C27-8437-F36E1FCDFC8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F79B08E8-0EF3-4C27-8437-F36E1FCDFC8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F79B08E8-0EF3-4C27-8437-F36E1FCDFC8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F79B08E8-0EF3-4C27-8437-F36E1FCDFC8B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9B503F82-13EA-429F-AFA3-26088ED58BAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9B503F82-13EA-429F-AFA3-26088ED58BAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B503F82-13EA-429F-AFA3-26088ED58BAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,10 +43,6 @@ Global
 		{A6C1D31B-E732-47E9-A43D-0285EE697BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6C1D31B-E732-47E9-A43D-0285EE697BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6C1D31B-E732-47E9-A43D-0285EE697BFD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E52327BF-5BFC-452A-AD26-A208FAD4ED84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E52327BF-5BFC-452A-AD26-A208FAD4ED84}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E52327BF-5BFC-452A-AD26-A208FAD4ED84}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E52327BF-5BFC-452A-AD26-A208FAD4ED84}.Release|Any CPU.Build.0 = Release|Any CPU
 		{46A56DF7-6505-41BC-9B93-4C27932EAC7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{46A56DF7-6505-41BC-9B93-4C27932EAC7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46A56DF7-6505-41BC-9B93-4C27932EAC7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -72,7 +60,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{F79B08E8-0EF3-4C27-8437-F36E1FCDFC8B} = {FDE4469F-0577-4CB7-87B4-F9F69F1386D4}
 		{9B503F82-13EA-429F-AFA3-26088ED58BAD} = {FDE4469F-0577-4CB7-87B4-F9F69F1386D4}
 		{1F60AF79-F247-4DA3-9F5F-85E199F3E18E} = {FDE4469F-0577-4CB7-87B4-F9F69F1386D4}
 		{A6C1D31B-E732-47E9-A43D-0285EE697BFD} = {27970825-DC59-49E3-AF6E-4606FCC3EF10}
