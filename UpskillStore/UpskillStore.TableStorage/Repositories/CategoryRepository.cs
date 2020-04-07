@@ -37,6 +37,19 @@ namespace UpskillStore.TableStorage.Repositories
             return result;
         }
 
+        public async Task<DataResult<CategoryDto>> GetById(string id)
+        {
+            var operationResult = await _tableStorageRepository.GetById(PARTITION_KEY, id);
+
+            var retrievedData = operationResult.IsSuccessful
+                ? new CategoryDto(operationResult.Value.Name, operationResult.Value.Description)
+                : null;
+
+            var result = new DataResult<CategoryDto>(operationResult.IsSuccessful, retrievedData);
+
+            return result;
+        }
+
         public async Task<DataResult<string>> CreateCategoryAsync(CategoryToAddDto categoryToAddDto)
         {
             var category = new Category(categoryToAddDto.Name, categoryToAddDto.Description);

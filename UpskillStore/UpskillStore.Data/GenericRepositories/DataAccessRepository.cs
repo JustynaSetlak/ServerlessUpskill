@@ -12,11 +12,13 @@ namespace UpskillStore.Data.Repositories
     public class DataAccessRepository<T> : IDataAccessRepository<T> where T : class
     {
         private readonly IDocumentClient _documentClient;
+        private readonly DataAccessOptions _dataAccessOptions;
         private readonly Uri _documentCollectionUri;
 
         public DataAccessRepository(IDocumentClient documentClient, IOptions<DataAccessOptions> dataAccessOptions)
         {
             _documentClient = documentClient;
+            _dataAccessOptions = dataAccessOptions.Value;
 
             _documentCollectionUri = UriFactory.CreateDocumentCollectionUri(
                 dataAccessOptions.Value.DatabaseName, 
@@ -32,11 +34,13 @@ namespace UpskillStore.Data.Repositories
             return new DataResult<string>(isSuccessful, response.ActivityId);
         }
 
-        public async Task Get()
+        public async Task<DataResult<T>> Get(string id)
         {
-            var response = await _documentClient.ReadDocumentCollectionAsync(_documentCollectionUri);
+            var documentUri = UriFactory.CreateDocumentUri(_dataAccessOptions.DatabaseName, _dataAccessOptions.CollectionName, id);
+            var response = await _documentClient.ReadDocumentAsync<T>(documentUri);
 
-
+            var isSuccessful = true;
+            return new DataResult<T>(isSuccessful, response.Document);
         }
     }
 }

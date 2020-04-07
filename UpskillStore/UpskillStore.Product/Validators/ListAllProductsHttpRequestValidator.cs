@@ -6,7 +6,7 @@ using UpskillStore.Product.HttpRequests;
 
 namespace UpskillStore.Product.Validators
 {
-    public class ListAllProductsHttpRequestValidator : AbstractValidator<ListAllProductsHttpRequest>
+    public class ListAllProductsHttpRequestValidator : AbstractValidator<SearchProductsHttpRequest>
     {
         private IReadOnlyList<int> possibleNumberOfElementsOnPage = new List<int> { 10, 20, 30 }.AsReadOnly();
         public ListAllProductsHttpRequestValidator()
@@ -15,7 +15,7 @@ namespace UpskillStore.Product.Validators
 
             RuleFor(x => x.NumberOfElementsOnPage)
                 .Must(x => possibleNumberOfElementsOnPage.Contains(x))
-                .WithMessage("Please only use: " + String.Join(",", possibleNumberOfElementsOnPage));
+                .WithMessage("Please only use: " + string.Join(",", possibleNumberOfElementsOnPage));
         }
     }
 }

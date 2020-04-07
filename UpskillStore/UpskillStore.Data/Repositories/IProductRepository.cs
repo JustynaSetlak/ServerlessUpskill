@@ -6,6 +6,7 @@ namespace UpskillStore.Data.Repositories
 {
     public interface IProductRepository
     {
-        Task<DataResult<string>> CreateProduct(ProductToCreateDto productToCreate);  
+        Task<DataResult<string>> CreateProduct(ProductToCreateDto productToCreate);
+        Task<DataResult<ProductDto>> GetProduct(string id);
     }
 }

@@ -31,11 +31,36 @@ module "cosmosdb" {
   }
 }
 
-#create functionApp
-module "functionapp" {
+#create azure search
+module "azuresearch" {
+  source = "./modules/azuresearch"
+  environment_tag = var.environment_tag
+  resource_location = azurerm_resource_group.resource.location
+  resource_group_name = azurerm_resource_group.resource.name
+}
+
+#create azure storage table
+module "categories_storage_table" {
+  source = "./modules/storagetable"
+  environment_tag = var.environment_tag
+  resource_location = azurerm_resource_group.resource.location
+  resource_group_name = azurerm_resource_group.resource.name
+}
+
+#create product functionApp
+module "productAF" {
   source       = "./modules/functionapp"
   resource_location = azurerm_resource_group.resource.location
   resource_name = azurerm_resource_group.resource.name
   environment_tag = var.environment_tag
   function_name = "${var.resource_group_name_prefix}-product-${var.environment_tag}"
+}
+
+#create category functionApp
+module "categoryAF" {
+  source       = "./modules/functionapp"
+  resource_location = azurerm_resource_group.resource.location
+  resource_name = azurerm_resource_group.resource.name
+  environment_tag = var.environment_tag
+  function_name = "${var.resource_group_name_prefix}-category-${var.environment_tag}"
 }

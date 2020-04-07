@@ -12,5 +12,7 @@ namespace UpskillStore.TableStorage.Repositories
         Task<DataResult<List<CategoryDto>>> GetByPropertyValue(string propertyName, string value);
 
         Task<Result> CheckIfExists(string id);
+
+        Task<DataResult<CategoryDto>> GetById(string id);
     }
 }

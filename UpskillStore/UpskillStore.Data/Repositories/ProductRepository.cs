@@ -23,7 +23,18 @@ namespace UpskillStore.Data.Repositories
             return result;
         }
 
-        public async Task GetProducts(ListAllProductsDto getProductsDto)
+        public async Task<DataResult<ProductDto>> GetProduct(string id)
+        {
+            var result = await _dataAccessRepository.Get(id);
+
+            var retrievedData = result.IsSuccessful
+                ? new ProductDto(result.Value.Id, result.Value.Name, result.Value.Description, result.Value.CategoryId)
+                : null;
+
+            return new DataResult<ProductDto>(result.IsSuccessful, retrievedData);
+        }
+
+        public async Task GetProducts()
         {
 
         }
