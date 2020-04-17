@@ -10,11 +10,11 @@ namespace UpskillStore.TableStorage.Repositories
 {
     public class CategoryRepository : ICategoryRepository
     {
-        private const string PARTITION_KEY = nameof(Category);
+        private const string PARTITION_KEY = nameof(ProductCategory);
 
-        private readonly ITableStorageRepository<Category> _tableStorageRepository;
+        private readonly ITableStorageRepository<ProductCategory> _tableStorageRepository;
 
-        public CategoryRepository(ITableStorageRepository<Category> tableStorageRepository)
+        public CategoryRepository(ITableStorageRepository<ProductCategory> tableStorageRepository)
         {
             _tableStorageRepository = tableStorageRepository;
         }
@@ -52,7 +52,7 @@ namespace UpskillStore.TableStorage.Repositories
 
         public async Task<DataResult<string>> CreateCategoryAsync(CategoryToAddDto categoryToAddDto)
         {
-            var category = new Category(categoryToAddDto.Name, categoryToAddDto.Description);
+            var category = new ProductCategory(categoryToAddDto.Name, categoryToAddDto.Description);
 
             var operationResult = await _tableStorageRepository.CreateElementAsync(category);
 
