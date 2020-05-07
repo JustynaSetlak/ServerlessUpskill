@@ -5,12 +5,18 @@ namespace UpskillStore.TableStorage.Models
 {
     public class Promotion : TableEntity
     {
-        public Promotion(string promotionCategoryName)
+        public Promotion()
         {
-            RowKey = Guid.NewGuid().ToString();
+        }
+
+        public Promotion(string promotionCategoryName, string identificator)
+        {
+            RowKey = identificator;
             PartitionKey = promotionCategoryName;
             PromotionCategoryName = promotionCategoryName;
         }
+
+        public string Name { get; set; }
 
         public string PromotionCategoryName { get; }
 
@@ -20,9 +26,13 @@ namespace UpskillStore.TableStorage.Models
 
         public bool IsActive { get; set; }
 
+        public bool IsDeleted { get; set; }
+
         public int Percentage { get; set; }
 
         public bool OnlyForVip { get; set; }
+
+        public string RequiredCode { get; set; }
 
         public string ElementId { get; set; }
     }

@@ -27,7 +27,7 @@ namespace UpskillStore.Data.Repositories
         {
             var result = await _dataAccessRepository.Get(id);
 
-            var retrievedData = result.IsSuccessful
+            var retrievedData = result.IsSuccessful && result.Value != null
                 ? new ProductDto(result.Value.Id, result.Value.Name, result.Value.Description, result.Value.CategoryId)
                 : null;
 

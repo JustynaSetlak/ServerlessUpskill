@@ -11,7 +11,7 @@ namespace UpskillStore.Data.Models
             Description = description;
             CategoryId = categoryId;
             DateOfCreation = DateTime.UtcNow;
-            Id = GuidGenerator.GenerateGuid().ToString();
+            Id = Guid.NewGuid().ToString();
         }
 
         public string Id { get; set; }
@@ -19,6 +19,8 @@ namespace UpskillStore.Data.Models
         public string Name { get; set; }
 
         public string Description { get; set; }
+
+        public double Price { get; set; }
 
         public string CategoryId { get; }
 

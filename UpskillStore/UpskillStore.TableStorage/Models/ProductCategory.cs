@@ -7,8 +7,6 @@ namespace UpskillStore.TableStorage.Models
     {
         public ProductCategory()
         {
-            RowKey = Guid.NewGuid().ToString();
-            PartitionKey = nameof(ProductCategory);
         }
 
         public ProductCategory(string name, string description)

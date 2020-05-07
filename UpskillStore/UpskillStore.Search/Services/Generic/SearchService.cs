@@ -45,5 +45,12 @@ namespace UpskillStore.Search.Services
 
             return resultList;
         }
+
+        public async Task<T> GetById<T>(string id) where T : class, ISearchable
+        {
+            var result = await _searchIndex.Value.Documents.GetAsync<T>(id);
+
+            return result;
+        }
     }
 }

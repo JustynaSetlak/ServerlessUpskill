@@ -7,17 +7,17 @@ using UpskillStore.Data.Repositories;
 using UpskillStore.EventPublisher.Events;
 using UpskillStore.Search.Dtos;
 using UpskillStore.Search.Services;
-using UpskillStore.TableStorage.Repositories;
+using UpskillStore.TableStorage.Repositories.Interfaces;
 
 namespace UpskillStore.Product.Functions.Event
 {
-    public class NewProductCreatedHandler
+    public class HandleNewProductCreated
     {
         private readonly IProductSearchService _productsearchService;
         private readonly ICategoryRepository _categoryRepository;
         private readonly IProductRepository _productRepository;
 
-        public NewProductCreatedHandler(
+        public HandleNewProductCreated(
             IProductSearchService searchService, 
             ICategoryRepository categoryRepository,
             IProductRepository productRepository)
@@ -27,7 +27,7 @@ namespace UpskillStore.Product.Functions.Event
             _productRepository = productRepository;
         }
 
-        [FunctionName(nameof(NewProductCreatedHandler))]
+        [FunctionName(nameof(HandleNewProductCreated))]
         public async Task Run([EventGridTrigger]NewProductCreated newProductCreated)
         {
             var createdProduct = await _productRepository.GetProduct(newProductCreated.Id);

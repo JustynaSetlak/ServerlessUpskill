@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using UpskillStore.TableStorage.Dtos;
 using UpskillStore.TableStorage.GenericRepositories;
 using UpskillStore.TableStorage.Models;
+using UpskillStore.TableStorage.Repositories.Interfaces;
 using UpskillStore.Utils.Result;
 
 namespace UpskillStore.TableStorage.Repositories
@@ -21,7 +22,7 @@ namespace UpskillStore.TableStorage.Repositories
 
         public async Task<DataResult<List<CategoryDto>>> GetByPropertyValue(string propertyName, string value)
         {
-            var opertationResult = await _tableStorageRepository.GetElementAsync(propertyName, value);
+            var opertationResult = await _tableStorageRepository.GetElementByPropertyAsync(propertyName, value);
 
             var data = opertationResult.Select(x => new CategoryDto(x.Name, x.Description)).ToList();
 

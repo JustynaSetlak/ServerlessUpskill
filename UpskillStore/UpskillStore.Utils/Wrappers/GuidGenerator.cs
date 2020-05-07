@@ -2,8 +2,8 @@
 
 namespace UpskillStore.Utils.Wrappers
 {
-    public static class GuidGenerator
+    public class GuidGenerator : IGuidGenerator
     {
-        public static Guid GenerateGuid() => Guid.NewGuid();
+        public Guid GenerateGuid() => Guid.NewGuid();
     }
 }

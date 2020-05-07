@@ -1,4 +1,5 @@
-﻿using Microsoft.Azure.Search.Models;
+﻿using AutoMapper;
+using Microsoft.Azure.Search.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,10 +11,12 @@ namespace UpskillStore.Search.Services
     public class ProductSearchService : IProductSearchService
     {
         private readonly ISearchService _searchService;
+        private readonly IMapper _mapper;
 
-        public ProductSearchService(ISearchService searchService)
+        public ProductSearchService(ISearchService searchService, IMapper mapper)
         {
             _searchService = searchService;
+            _mapper = mapper;
         }
 
         public async Task MergeOrUpload(ProductSearchDto productSearchDto)
@@ -27,6 +30,14 @@ namespace UpskillStore.Search.Services
             await _searchService.MergeOrUpload(productToUpload);
         }
 
+        public async Task<ProductSearchDto> GetById(string id)
+        {
+            var result = await _searchService.GetById<Product>(id);
+
+            var mappedProduct = _mapper.Map<ProductSearchDto>(result);
+
+            return mappedProduct;
+        }
 
         public async Task<List<ProductSearchDto>> Search(ProductSearchParamsDto productSearchParams)
         {

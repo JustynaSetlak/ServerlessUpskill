@@ -16,6 +16,14 @@
 
         public string Description { get; set; }
 
+        public string CategoryId { get; set; }
+
         public string CategoryName { get; set; }
+
+        public double OriginalPrice { get; set; }
+
+        public PromotionDetailsDto VipPromotionDetails { get; set; }
+
+        public PromotionDetailsDto CustomerPromotionDetails { get; set; }
     }
 }

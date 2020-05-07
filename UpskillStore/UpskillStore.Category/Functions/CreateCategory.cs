@@ -4,9 +4,9 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using UpskillStore.Common.Constants;
 using UpskillStore.Category.HttpRequests;
-using UpskillStore.TableStorage.Repositories;
 using FluentValidation;
 using UpskillStore.TableStorage.Dtos;
+using UpskillStore.TableStorage.Repositories.Interfaces;
 
 namespace UpskillStore.Category.Functions
 {

@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using System.Threading.Tasks;
 using UpskillStore.Category.HttpRequests;
-using UpskillStore.TableStorage.Repositories;
+using UpskillStore.TableStorage.Repositories.Interfaces;
 
 namespace UpskillStore.Category.Validators
 {

@@ -36,7 +36,6 @@ namespace UpskillStore.EventPublisher.EventHandlers
                     Data = newEvent,
                     Subject = eventTypeName,
                     DataVersion = "1.0",
-                    Topic = eventTypeName
                 }
             };
 

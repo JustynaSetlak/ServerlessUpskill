@@ -1,8 +1,6 @@
 ﻿using FluentValidation;
-using System;
 using UpskillStore.Product.HttpRequests;
-using UpskillStore.TableStorage.Repositories;
-using UpskillStore.Utils.Result;
+using UpskillStore.TableStorage.Repositories.Interfaces;
 
 namespace UpskillStore.Product.Validators
 {

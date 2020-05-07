@@ -4,6 +4,7 @@ using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using UpskillStore.Utils.Wrappers;
 
 namespace UpskillStore.Utils.Extensions
 {
@@ -44,6 +45,11 @@ namespace UpskillStore.Utils.Extensions
             const string azureFunctionsEnvironmentVariableName = "AZURE_FUNCTIONS_ENVIRONMENT";
 
             return developmentEnvironment.Equals(Environment.GetEnvironmentVariable(azureFunctionsEnvironmentVariableName), StringComparison.OrdinalIgnoreCase);
+        }
+
+        public static void RegisterUtilServices(this IFunctionsHostBuilder builder)
+        {
+            builder.Services.TryAddTransient<IGuidGenerator, GuidGenerator>();
         }
     }
 }

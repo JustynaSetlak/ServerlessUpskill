@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using UpskillStore.TableStorage.Dtos;
 using UpskillStore.Utils.Result;
 
-namespace UpskillStore.TableStorage.Repositories
+namespace UpskillStore.TableStorage.Repositories.Interfaces
 {
     public interface ICategoryRepository
     {

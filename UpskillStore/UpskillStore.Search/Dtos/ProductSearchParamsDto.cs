@@ -2,6 +2,11 @@
 {
     public class ProductSearchParamsDto
     {
+        public ProductSearchParamsDto(string categoryName)
+        {
+            CategoryName = categoryName;
+        }
+
         public ProductSearchParamsDto(string productName, string categoryName, int pageNumber, int numberOfElementsOnPage)
         {
             ProductName = productName;
